@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .color-blue {color: blue};
+        .color-red {color: red;}
+        .is-loading {background-color: red;}
+    </style>
+    <div id="root">
+        <button :class=" {'is-loading': isLoading} " @click="toggleClass">Toggle Me</button>
+        <button :disabled="isDisabled">If Disabled</button>
+        <button @click="enableButton">Enable</button>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+    var app = new Vue ({
+        el: '#root',
+        
+        data: {
+            className: 'color-blue',
+            isLoading: false,
+            isDisabled: true
+        },
+        methods: {
+            toggleClass() {
+                if(this.isLoading == false) {
+                this.isLoading = true
+                } else {
+                    this.isLoading = false
+                }
+            },
+            enableButton() {
+                if(this.isDisabled == true) {
+                this.isDisabled = false
+                } else {
+                    this.isDisabled = true
+                }
+            }
+        }
+    })
+    </script>
+</body>
+</html>

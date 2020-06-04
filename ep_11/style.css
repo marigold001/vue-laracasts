@@ -1,0 +1,12 @@
+.is-active {
+    background-color: #000;
+}
+li {
+    /* list-style-type: none; */
+    /* display: inline-block; */
+    margin: 0px 10px;
+}
+a {
+    /* text-decoration: none; */
+    color: lightblue;
+}

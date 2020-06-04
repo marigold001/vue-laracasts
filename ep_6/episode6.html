@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+        <h1>
+            {{reversedMessage}}
+        </h1>
+        <h2>All Tasks</h2>
+        <ul>
+            
+        <li v-for="(task, index) in tasks">
+            {{task.description}}
+            {{index}}
+            <button @click="completedTask(index)">&#10003</button>
+            <button @click="incompleteTask(index)">X</button>
+        </li>
+      </ul>
+
+
+      <h2>Complete Tasks</h2>
+      <li v-for="task in tasks" v-if="task.completed">
+          {{task.description}}
+      </li>
+    <h2>Incomplete Tasks</h2>
+    <ul>
+    <li v-for="value in incompleteTasks" v-text="value.description">
+        {{incompleteTasks}} 
+    </li>
+  </ul>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#root',
+            data: function() {
+                return {
+                    message: 'Hello World',
+                    tasks: [
+                        {description: 'Go to the store', completed: ''},
+                        {description: 'Finish screencast', completed: ''},
+                        {description: 'Make donation', completed: ''},
+                        {description: 'Clear inbox', completed: ''},
+                        {description: 'Make dinner', completed: ''},
+                        {description: 'Clean room', completed: ''},
+                        {description: 'Test file', completed:''}
+                    ]
+                }
+            },
+            computed: {
+                reversedMessage() {
+                    return this.message.split('').reverse().join('');
+                },
+                incompleteTasks() {
+                    return this.tasks.filter(task => ! task.completed);
+                    
+
+                    // The equivalent
+                    // this.tasks.filter(function (task) {
+                    //     return ! task.completed;
+                    // })
+                }
+            },
+            methods:{
+                // Don't know how to select the index
+                completedTask(index) {
+                    return this.tasks[index].completed = true;
+                },
+                incompleteTask(index) {
+                    return this.tasks[index].completed = false;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

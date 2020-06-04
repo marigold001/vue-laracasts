@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="root">
+        <tabs>
+            <tab name="About Us" :selected="true">
+                <h1>Here is the content for the about us tab</h1>
+            </tab>
+            <tab name="About Our Culture">
+                <h1>Here is the content for the about our culture</h1>
+            </tab>
+            <tab name="About Our Vision">
+                <h1>Here is the content for the about our vision tab</h1>
+            </tab>
+            <tab name="About Our New Idea">
+                <h1>Here is the content for the about our vision tab</h1>
+            </tab>
+            <tab name="About Our New S">
+                <h1>Here is the content for the about our S tab</h1>
+            </tab>
+        </tabs>    
+    </div>
+
+   
+
+    
+
+    
+    <div v-show="isActive"><slot></slot></div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script src="main.js"></script>
+</body>
+</html>
