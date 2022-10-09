@@ -1,1 +1,3 @@
-# WBD5204-learn_vue_step_by_step
+# vue-laracasts
+
+Vue on Laracasts
